@@ -47,8 +47,27 @@
 									<p>A basic implementation of an Entity Component System<br/></p>
 								</header>
 								<div class="image main"><img src="images/ECS.png" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								
+							<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Simple_ECS_0"></a>Simple ECS</h1>
+							<p class="has-line-data" data-line-start="2" data-line-end="3">This is a basic implementation of an ECS.</p>
+							<h4 class="code-line" data-line-start=4 data-line-end=5><a id="Entities_4"></a>Entities</h4>
+							<p class="has-line-data" data-line-start="5" data-line-end="6">The entities in this implementation don’t have a class but only exist as their ID</p>
+							<h4 class="code-line" data-line-start=7 data-line-end=8><a id="Components_7"></a>Components</h4>
+							<p class="has-line-data" data-line-start="8" data-line-end="10">The components are stored in a sparse sets, named pools in this implementation.<br>
+							With the sparse set the components are accessible through the ID of their Entity but the components themselves are stored contiguous in the memory.</p>
+							<h4 class="code-line" data-line-start=11 data-line-end=12><a id="Systems_11"></a>Systems</h4>
+							<p class="has-line-data" data-line-start="12" data-line-end="13">The systems are implemented with an abstract base class from which they inherit. They are templated in such a way that adding new systems with one or more component types is easy and quick. The user just has to override the Execute function with the components they want to use.</p>
+							<h4 class="code-line" data-line-start=14 data-line-end=15><a id="Current_limitations_14"></a>Current limitations:</h4>
+
+							&emsp;- Entities can only have 1 of a component type.<br/>
+							&emsp;- For the systems to function the used components must all have the same index in their respective pools.
+
+							<h4 class="code-line" data-line-start=18 data-line-end=19><a id="Future_work_18"></a><br/>Future work:</h4>
+							&emsp;- Allow entities to have more than one of the same component type.<br/>
+							&emsp;- Allow systems to use components that don't have the same indexes.<br/>
+							&emsp;- Write a static heap allocator, to avoid data being allocated at runtime.<br/>
+							&emsp;- Perform speed tests, comparing this ECS to public implementations.<br/>
+							</body></html>
 							</section>
 
 					</div>

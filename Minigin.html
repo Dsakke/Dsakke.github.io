@@ -44,13 +44,43 @@
 								<header class="major">
 									<span class="date"><br/></span>
 									<h1>Minigin<br/>&nbsp;</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<p>A 2D engine</p>
 								</header>
-								<div class="image main"><img src="images/pic01.jpg" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								<div class="image main"><img src="images/Minigin.JPG" alt="" /></div>
+									<h1 class="code-line" data-line-start=0 data-line-end=1><a id="Minigin_0"></a>Minigin</h1>
+									<h3 class="code-line" data-line-start=1 data-line-end=2><a id="Intro_1"></a>Intro</h3>
+									<p class="has-line-data" data-line-start="2" data-line-end="4">This was a engine made for the Programming 4 in DAE.<br>
+									It is made for developing 2D games and consists of two projects, an engine project and a game project. The final user is supposed to put all their code into the game project. We also had to remake Q-bert in our own engine for this course, I didn’t manage to completely finish the game so there is still a half working version in this repository. Despite this I believe my engine is well made for the amount of time we had for this assignment and the experience I had back then.</p>
+									<h3 class="code-line" data-line-start=5 data-line-end=6><a id="Implementation_5"></a>Implementation</h3>
+									<h5 class="code-line" data-line-start=6 data-line-end=7><a id="GameObjects_and_Components_6"></a>GameObjects and Components</h5>
+									<p class="has-line-data" data-line-start="7" data-line-end="8">Minigin uses the traditional Gameobject Component approach. I generally follow “preffer composition over inheritance”-rule so I made sure that my GameObject implementation could not be inherited from, instead the user should inherit from the abstract Component class to implement behaviors and add these to their GameObjects.</p>
+									<h5 class="code-line" data-line-start=9 data-line-end=10><a id="Resource_Managment_9"></a>Resource Managment</h5>
+									<p class="has-line-data" data-line-start="10" data-line-end="11">The project includes a resource manager which ensures resources are only loaded in once and can easily be accessed from anywhere in the project. I implemented the ResourceManager as a singleton to ensure that there is only one instance in existance.</p>
+									<h5 class="code-line" data-line-start=12 data-line-end=13><a id="Rendering_12"></a>Rendering</h5>
+									<p class="has-line-data" data-line-start="13" data-line-end="14">The rendering is done with SDL but this was already included in the framework we got from the teachers.</p>
+									<h5 class="code-line" data-line-start=15 data-line-end=16><a id="Sound_15"></a>Sound</h5>
+									<p class="has-line-data" data-line-start="16" data-line-end="17">The sound uses the service locator pattern, this allows the user to easily change which sound system is used. There are already three sound system implementations in the engine:</p>
+									<ol>
+									<li class="has-line-data" data-line-start="17" data-line-end="19">NullSoundSystem
+									<ul>
+									<li class="has-line-data" data-line-start="18" data-line-end="19">This is an empty implementation, this exists so the soundlocator won’t cause errors if used before a sound system is added</li>
+									</ul>
+									</li>
+									<li class="has-line-data" data-line-start="19" data-line-end="21">SoundSystem
+									<ul>
+									<li class="has-line-data" data-line-start="20" data-line-end="21">This is a very basic implementation of a sound system using FMOD. The user can play a sound by using the filename. The sound system stores the sounds it initiliazes internally, so it will only be created once.</li>
+									</ul>
+									</li>
+									<li class="has-line-data" data-line-start="21" data-line-end="24">SoundSystemLogger
+									<ul>
+									<li class="has-line-data" data-line-start="22" data-line-end="24">This sound system exists for testing and debugging purposes, it contains another sound system and will just pass everything to that sound system while logging whatever sound is supposed to be playing.</li>
+									</ul>
+									</li>
+									</ol>
+									<p class="has-line-data" data-line-start="24" data-line-end="25">The user can also override the BaseSoundSystem class to make their own version.</p>
+									<h5 class="code-line" data-line-start=27 data-line-end=28><a id="Events_27"></a>Events</h5>
+									<p class="has-line-data" data-line-start="28" data-line-end="29">There is a basic Event System in Minigin. It uses the observer pattern. I implemented this by writing a Observer class and Subject class. The Observer class has a virtual function OnNotify which the user should override with their desired behavior. The subject class contains function to add/remove observers, also containts a Notify function which passes a GameObject and an Event to all the observers it is subscribed to.</p>
+									</body></html>
 							</section>
 
 					</div>

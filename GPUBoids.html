@@ -43,15 +43,27 @@
 							<section class="post">
 								<header class="major">
 									<span class="date">April 25, 2017</span>
-									<h1>This is a<br />
-									Generic Page</h1>
-									<p>Aenean ornare velit lacus varius enim ullamcorper proin aliquam<br />
-									facilisis ante sed etiam magna interdum congue. Lorem ipsum dolor<br />
-									amet nullam sed etiam veroeros.</p>
+									<h1>GPU Boids</h1>
+									<p>Flocking behavior simulated on the GPU.</p>
 								</header>
 								<div class="image main"><img src="images/Boid.JPG" alt="" /></div>
-								<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Curabitur sapien risus, commodo eget turpis at, elementum convallis enim turpis, lorem ipsum dolor sit amet nullam.</p>
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus. Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum.</p>
+								
+								<h1 class="code-line" data-line-start=0 data-line-end=1><a id="GPU_Boids_0"></a>GPU Boids</h1>
+								<p class="has-line-data" data-line-start="1" data-line-end="2">I learned about compute shaders and learned they’re a good way to offload work from your CPU whenever you have a highly parallelizable problem. I decided that making an implementation of boids in compute shaders seems like a good way to learn. I decided on using Unity because they have good support for compute shaders.</p>
+								<h4 class="code-line" data-line-start=3 data-line-end=4><a id="C_3"></a>C#</h4>
+								<p class="has-line-data" data-line-start="4" data-line-end="5">The first challenge was learning how to use compute shaders in unity, luckily the code is similar to DirectX with which I already have some experience. The C# side of the project is pretty easy. I made the boids customizable at runtime in the editor.</p>
+								<p class="has-line-data" data-line-start="6" data-line-end="7"><img src="https://images2.imgbox.com/92/f3/QgEfKi01_o.png" alt="Editor variables" title="Editor variables"></p>
+								<h4 class="code-line" data-line-start=8 data-line-end=9><a id="Compute_shader_8"></a>Compute shader</h4>
+								<p class="has-line-data" data-line-start="9" data-line-end="10">Because you can’t use classes in compute shaders I had to go for a different approach to implement boids than I would usually use. I made seperate functions for the steering behaviours and combine all the output from them in the main function of the shader. I also learned from <a href="https://github.com/Shinao/Unity-GPU-Boids">https://github.com/Shinao/Unity-GPU-Boids</a> that just using a brute force loop to check for neighbors is the fastest for GPU boids.</p>
+								<h4 class="code-line" data-line-start=11 data-line-end=12><a id="Instanced_Meshes_11"></a>Instanced Meshes</h4>
+								<p class="has-line-data" data-line-start="12" data-line-end="13">After I made the compute shader I learned that the biggest bottleneck was actually pushing the transforms of the boids to the GPU and then reading it back and transforming the boids on the CPU. Because of this I made a instanced mesh renderer. The positions of the boids get generated on the CPU when the program starts and get pushed to the GPU once and is never accessed by the CPU again. This massively improved FPS.</p>
+								<h4 class="code-line" data-line-start=14 data-line-end=15><a id="Future_work_14"></a>Future work</h4>
+								<ul>
+								<li class="has-line-data" data-line-start="15" data-line-end="16">Shinao who I mentioned earlier made the boids fly within a mesh, I’d like to also make this because it looks really cool.</li>
+								<li class="has-line-data" data-line-start="16" data-line-end="17">Make a way to place waypoints and have the boids follow these.</li>
+								<li class="has-line-data" data-line-start="17" data-line-end="19">Make seperate flocks that stick together, and can follow seperate waypoint paths.</li>
+								</ul>
+								</body></html>
 							</section>
 
 					</div>
