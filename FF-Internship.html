@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<!--
+	Massively by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Sam Vanden Bosch</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Home</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li class="active"><a href="index.html">Portfolio</a></li>
+							<li><a href="aboutme.html">About me</a></li>
+							<li><a href="pdf/CV_Sam_Vanden_Bosch.pdf">Resume</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="https://www.linkedin.com/in/sam-vanden-bosch/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/Dsakke" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+							<li><a href="mailto:sam.vanden.bosch@outlook.com" class="icon icon__white fa fa-envelope alt"><span class="label">e-mail</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section class="post">
+								<header class="major">
+									<span class="date"><br></span>
+									<h1>Internship Fire Falcom<br />
+									&nbsp;</h1>
+									<p>A Game Programmer Internship</p>
+								</header>
+								<div class="image main"><img src="images/firefalcom_logo.svg" alt="Logo Fire Falcom" /></div>
+								<p class="has-line-data" data-line-start="0" data-line-end="1">I did an internship at Fire Falcom as a Game Programmer. Here I helped port the game Do Not Feed The Monkeys 2099 to the Nintendo Switch. The game is made in Unity so I learned that making the game work on different platforms is rather easy when using Unity. The biggest challenges are adapting the controls and downscaling or optimising the assets.</p>
+								<h3 class="code-line" data-line-start="2" data-line-end="3"><a id="Adapting_controls_2"></a>Adapting controls</h3>
+								<p class="has-line-data" data-line-start="3" data-line-end="4">My largest task was to adapt controls from mouse only to be fully controlled by the gamepads. I made a virtual mouse which could be controlled with the joysticks. Because this isn’t a very good way to control a mouse I also made a shortcut system, which allowed the players to open menus and perform action with the press of a button instead of having to click it with the cursor.</p>
+								<h3 class="code-line" data-line-start="5" data-line-end="6"><a id="Memory_Management_5"></a>Memory Management</h3>
+								<p class="has-line-data" data-line-start="6" data-line-end="7">The game wasn’t optimized to be run on the Switch. Because of this the game crashed while loading. This was because most of the assets in the game were loaded at the start of the game. For this I made a system that loads assets when needed and unloads them when they are no longer needed. This was really interesting because I never used the asset managing part of Unity before.</p>
+								<h3 class="code-line" data-line-start="8" data-line-end="9"><a id="Editor_tools_8"></a>Editor tools</h3>
+								<p class="has-line-data" data-line-start="9" data-line-end="10">Because Fire Falcom works together with other developers we sometimes had trouble with git. Company policy is to always overwrite our changes in case of conflicts. Because git isn’t very good for collaberating on xaml based Unity files e.g. scene, prefabs, etc. I made an editor tool where we could store where certain components were used in the scenes and later reattach them with the press of a button. This reduced the tediousness of having to reapply all our changes after a large merge happened.</p>
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+				<footer id="footer">
+					<section>
+
+							<h3 style="text-align:center">Socials</h3>
+							<ul style="text-align:center;" class="icons alt">
+								<li><a href="https://www.linkedin.com/in/sam-vanden-bosch/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+								<li><a href="https://github.com/Dsakke" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+								<li><a href="mailto:sam.vanden.bosch@outlook.com" class="icon icon__white fa fa-envelope alt"><span class="label">e-mail</span></a></li>
+							</ul>
+					</section>
+			</footer>
+
+			<!-- Copyright -->
+
+			<div id="copyright">
+			
+				<ul><li>&copy; Sam Vanden Bosch</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
+			</div>
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
